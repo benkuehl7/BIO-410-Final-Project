@@ -607,18 +607,3 @@ rm: t1: No such file or directory
 2026-05-01 14:36:05 - Merging to output final contigs 
 2026-05-01 14:36:05 - 3 contigs, total 19355 bp, min 201 bp, max 18940 bp, avg 6451 bp, N50 18940 bp
 2026-05-01 14:36:05 - ALL DONE. Time elapsed: 1.155798 seconds 
-(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t6_1.fq -2 sim_t6_2.fq -o t6_out --num-cpu-threads 1
-megahit: Output directory /Users/ben.kuehl/Downloads/ben/t6_out already exists, please change the parameter -o to another value to avoid overwriting.
-(base) ben.kuehl@Bens-MacBook-Pro-2 ben % 
-  [Restored May 4, 2026 at 1:01:38 PM]
-Last login: Mon May  4 13:01:36 on console
-(base) ben.kuehl@Bens-MacBook-Pro-2 ben % 
-  [Restored May 4, 2026 at 2:06:01 PM]
-Last login: Mon May  4 14:05:59 on console
-(base) ben.kuehl@Bens-MacBook-Pro-2 ben % 
-  [Restored May 8, 2026 at 12:23:11 PM]
-Last login: Fri May  8 12:23:09 on console
-(base) ben.kuehl@Bens-MacBook-Pro-2 ben % 
-  [Restored May 13, 2026 at 1:18:58 PM]
-Last login: Wed May 13 13:18:55 on console
-(base) ben.kuehl@Bens-MacBook-Pro-3 ben % /Users/ben.kuehl/Downloads 
