@@ -1,0 +1,37 @@
+#
+BiocManager::install("Biostrings")
+BiocManager::install("DECIPHER")
+
+
+library(Biostrings)
+library(DECIPHER)
+
+
+allcontigs <- c()
+for(i in 1:6){
+contigs <- readDNAStringSet(paste0('~/Downloads/ben/t', i, '_out/final.contigs.fa'))
+allcontigs <- c(allcontigs, contigs)
+}
+
+
+allcontigs <- do.call(c, allcontigs)
+
+
+toalign <
+- allcontigs[which(nchar(allcontigs) > 5000)]
+names(toalign) <-1:length(toalign)
+
+
+BrowseSeqs(alignment, htmlFile = 'final_project.html')
+
+
+> packageVersion("DECIPHER")
+
+
+> ls("package:DECIPHER", pattern = "Tree")
+
+
+> tree <- Treeline(alignment, method = "ML", showPlot = TRUE)
+
+
+
