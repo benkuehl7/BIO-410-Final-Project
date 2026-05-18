@@ -16,4 +16,4 @@ Viral genome sequencing reads were obtained using next generation sequencing (NG
 ## Results
 The phylogenetic tree shows that samples 4 and 5, 1 and 2, and 3 and 6 are most closely related to eachother. It's likely these 6 samples came from 2 individuals based on the phylogenetic tree.
 
-![Phylogenetic Tree] (TREE.png)
+![Phylogenetic Tree](TREE.png)
