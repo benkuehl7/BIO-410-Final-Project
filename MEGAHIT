@@ -1,0 +1,624 @@
+Last login: Fri May  1 13:33:28 on ttys000
+(base) ben.kuehl@Bens-MacBook-Pro-2 ~ % conda install -c bioconda megahit
+Do you accept the Terms of Service (ToS) for 
+https://repo.anaconda.com/pkgs/main? [(a)ccept/(r)eject/(v)iew]: a  
+Do you accept the Terms of Service (ToS) for https://repo.anaconda.com/pkgs/r? 
+[(a)ccept/(r)eject/(v)iew]: a
+2 channel Terms of Service accepted
+Retrieving notices: done
+Channels:
+ - bioconda
+ - defaults
+Platform: osx-arm64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /Users/ben.kuehl/miniconda3
+
+  added / updated specs:
+    - megahit
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    conda-26.3.2               |  py313hca03da5_1         1.2 MB
+    llvm-openmp-22.1.2         |       h4714345_0         295 KB
+    megahit-1.2.9              |       h96a01ab_8         1.4 MB  bioconda
+    ------------------------------------------------------------
+                                           Total:         2.9 MB
+
+The following NEW packages will be INSTALLED:
+
+  llvm-openmp        pkgs/main/osx-arm64::llvm-openmp-22.1.2-h4714345_0 
+  megahit            bioconda/osx-arm64::megahit-1.2.9-h96a01ab_8 
+
+The following packages will be UPDATED:
+
+  conda                              26.3.2-py313hca03da5_0 --> 26.3.2-py313hca03da5_1 
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages:
+                                                                                
+Preparing transaction: done                                                     
+Verifying transaction: done                                                     
+Executing transaction: done
+(base) ben.kuehl@Bens-MacBook-Pro-2 ~ % megahit -1 sim_t1_1.fq -2 sim_t1_2.fq -o t1_out
+2026-05-01 13:40:24 - MEGAHIT v1.2.9
+megahit: Cannot find file /Users/ben.kuehl/sim_t1_1.fq
+(base) ben.kuehl@Bens-MacBook-Pro-2 ~ % unzip file.zip/Users/ben.kuehl/Downloads/ben.zip          
+unzip:  cannot find or open file.zip/Users/ben.kuehl/Downloads/ben.zip, file.zip/Users/ben.kuehl/Downloads/ben.zip.zip or file.zip/Users/ben.kuehl/Downloads/ben.zip.ZIP.
+(base) ben.kuehl@Bens-MacBook-Pro-2 ~ % /Users/ben.kuehl/Downloads/ben\ 2.zip 
+zsh: permission denied: /Users/ben.kuehl/Downloads/ben 2.zip
+(base) ben.kuehl@Bens-MacBook-Pro-2 ~ % unzip /Users/ben.kuehl/Downloads/ben\ 2.zip 
+Archive:  /Users/ben.kuehl/Downloads/ben 2.zip
+   creating: ben/
+  inflating: __MACOSX/._ben          
+  inflating: ben/sim_t5_2.fq         
+  inflating: __MACOSX/ben/._sim_t5_2.fq  
+  inflating: ben/sim_t6_1.fq         
+  inflating: __MACOSX/ben/._sim_t6_1.fq  
+  inflating: ben/sim_t4_2.fq         
+  inflating: __MACOSX/ben/._sim_t4_2.fq  
+  inflating: ben/sim_t3_2.fq         
+  inflating: __MACOSX/ben/._sim_t3_2.fq  
+  inflating: ben/sim_t2_2.fq         
+  inflating: __MACOSX/ben/._sim_t2_2.fq  
+  inflating: ben/sim_t1_1.fq         
+  inflating: __MACOSX/ben/._sim_t1_1.fq  
+  inflating: ben/sim_t2_1.fq         
+  inflating: __MACOSX/ben/._sim_t2_1.fq  
+  inflating: ben/sim_t1_2.fq         
+  inflating: __MACOSX/ben/._sim_t1_2.fq  
+  inflating: ben/sim_t3_1.fq         
+  inflating: __MACOSX/ben/._sim_t3_1.fq  
+  inflating: ben/sim_t4_1.fq         
+  inflating: __MACOSX/ben/._sim_t4_1.fq  
+  inflating: ben/sim_t5_1.fq         
+  inflating: __MACOSX/ben/._sim_t5_1.fq  
+  inflating: ben/sim_t6_2.fq         
+  inflating: __MACOSX/ben/._sim_t6_2.fq  
+(base) ben.kuehl@Bens-MacBook-Pro-2 ~ % megahit -1 sim_t1_1.fq -2 sim_t1_2.fq -o t1_out
+megahit: Output directory /Users/ben.kuehl/t1_out already exists, please change the parameter -o to another value to avoid overwriting.
+(base) ben.kuehl@Bens-MacBook-Pro-2 ~ % megahit -1 sim_t2_1.fq -2 sim_t2_2.fq -o t2_out
+2026-05-01 14:00:00 - MEGAHIT v1.2.9
+megahit: Cannot find file /Users/ben.kuehl/sim_t2_1.fq
+(base) ben.kuehl@Bens-MacBook-Pro-2 ~ % megahit
+megahit: MEGAHIT v1.2.9
+
+contact: Dinghua Li <voutcn@gmail.com>
+
+Usage:
+  megahit [options] {-1 <pe1> -2 <pe2> | --12 <pe12> | -r <se>} [-o <out_dir>]
+
+  Input options that can be specified for multiple times (supporting plain text and gz/bz2 extensions)
+    -1                       <pe1>          comma-separated list of fasta/q paired-end #1 files, paired with files in <pe2>
+    -2                       <pe2>          comma-separated list of fasta/q paired-end #2 files, paired with files in <pe1>
+    --12                     <pe12>         comma-separated list of interleaved fasta/q paired-end files
+    -r/--read                <se>           comma-separated list of fasta/q single-end files
+
+Optional Arguments:
+  Basic assembly options:
+    --min-count              <int>          minimum multiplicity for filtering (k_min+1)-mers [2]
+    --k-list                 <int,int,..>   comma-separated list of kmer size
+                                            all must be odd, in the range 15-255, increment <= 28)
+                                            [21,29,39,59,79,99,119,141]
+
+  Another way to set --k-list (overrides --k-list if one of them set):
+    --k-min                  <int>          minimum kmer size (<= 255), must be odd number [21]
+    --k-max                  <int>          maximum kmer size (<= 255), must be odd number [141]
+    --k-step                 <int>          increment of kmer size of each iteration (<= 28), must be even number [10]
+
+  Advanced assembly options:
+    --no-mercy                              do not add mercy kmers
+    --bubble-level           <int>          intensity of bubble merging (0-2), 0 to disable [2]
+    --merge-level            <l,s>          merge complex bubbles of length <= l*kmer_size and similarity >= s [20,0.95]
+    --prune-level            <int>          strength of low depth pruning (0-3) [2]
+    --prune-depth            <int>          remove unitigs with avg kmer depth less than this value [2]
+    --disconnect-ratio       <float>        disconnect unitigs if its depth is less than this ratio times 
+                                            the total depth of itself and its siblings [0.1]  
+    --low-local-ratio        <float>        remove unitigs if its depth is less than this ratio times
+                                            the average depth of the neighborhoods [0.2]
+    --max-tip-len            <int>          remove tips less than this value [2*k]
+    --cleaning-rounds        <int>          number of rounds for graph cleanning [5]
+    --no-local                              disable local assembly
+    --kmin-1pass                            use 1pass mode to build SdBG of k_min
+
+  Presets parameters:
+    --presets                <str>          override a group of parameters; possible values:
+                                            meta-sensitive: '--min-count 1 --k-list 21,29,39,49,...,129,141'
+                                            meta-large: '--k-min 27 --k-max 127 --k-step 10'
+                                            (large & complex metagenomes, like soil)
+
+  Hardware options:
+    -m/--memory              <float>        max memory in byte to be used in SdBG construction
+                                            (if set between 0-1, fraction of the machine's total memory) [0.9]
+    --mem-flag               <int>          SdBG builder memory mode. 0: minimum; 1: moderate;
+                                            others: use all memory specified by '-m/--memory' [1]
+    -t/--num-cpu-threads     <int>          number of CPU threads [# of logical processors]
+    --no-hw-accel                           run MEGAHIT without BMI2 and POPCNT hardware instructions
+
+  Output options:
+    -o/--out-dir             <string>       output directory [./megahit_out]
+    --out-prefix             <string>       output prefix (the contig file will be OUT_DIR/OUT_PREFIX.contigs.fa)
+    --min-contig-len         <int>          minimum length of contigs to output [200]
+    --keep-tmp-files                        keep all temporary files
+    --tmp-dir                <string>       set temp directory
+
+Other Arguments:
+    --continue                              continue a MEGAHIT run from its last available check point.
+                                            please set the output directory correctly when using this option.
+    --test                                  run MEGAHIT on a toy test dataset
+    -h/--help                               print the usage message
+    -v/--version                            print version
+
+(base) ben.kuehl@Bens-MacBook-Pro-2 ~ % cd Downloads 
+(base) ben.kuehl@Bens-MacBook-Pro-2 Downloads % cd ben   
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % ls -l
+total 14304
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t1_1.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t1_2.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t2_1.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t2_2.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t3_1.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t3_2.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t4_1.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t4_2.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t5_1.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t5_2.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t6_1.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t6_2.fq
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t1_1.fq -2 sim_t1_2.fq -o t1_out
+2026-05-01 14:01:02 - MEGAHIT v1.2.9
+2026-05-01 14:01:02 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:01:02 - Convert reads to binary library
+2026-05-01 14:01:02 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t1_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t1_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:01:02 - b'INFO  utils/utils.h                 :  152 - Real: 0.0049\tuser: 0.0051\tsys: 0.0029\tmaxrss: 3391488'
+2026-05-01 14:01:02 - k-max reset to: 141 
+2026-05-01 14:01:02 - Start assembly. Number of CPU threads 8 
+2026-05-01 14:01:02 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:01:02 - Memory used: 7730941132
+2026-05-01 14:01:02 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:01:02 - Error occurs, please refer to /Users/ben.kuehl/Downloads/ben/t1_out/log for detail
+2026-05-01 14:01:02 - Command: /Users/ben.kuehl/miniconda3/bin/megahit_core_popcnt count -k 21 -m 2 --host_mem 7730941132 --mem_flag 1 --output_prefix /Users/ben.kuehl/Downloads/ben/t1_out/tmp/k21/21 --num_cpu_threads 8 --read_lib_file /Users/ben.kuehl/Downloads/ben/t1_out/tmp/reads.lib; Exit code -11
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % rm -r t1_out                                     
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t1_1.fq -2 sim_t1_2.fq -o t1_out --num-cpu-threads 1
+2026-05-01 14:01:23 - MEGAHIT v1.2.9
+2026-05-01 14:01:23 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:01:23 - Convert reads to binary library
+2026-05-01 14:01:23 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t1_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t1_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:01:23 - b'INFO  utils/utils.h                 :  152 - Real: 0.0025\tuser: 0.0032\tsys: 0.0013\tmaxrss: 3440640'
+2026-05-01 14:01:23 - k-max reset to: 141 
+2026-05-01 14:01:23 - Start assembly. Number of CPU threads 1 
+2026-05-01 14:01:23 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:01:23 - Memory used: 7730941132
+2026-05-01 14:01:23 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:01:23 - Build graph for k = 21 
+2026-05-01 14:01:24 - Assemble contigs from SdBG for k = 21
+2026-05-01 14:01:24 - Local assembly for k = 21
+2026-05-01 14:01:24 - Extract iterative edges from k = 21 to 29 
+2026-05-01 14:01:24 - Build graph for k = 29 
+2026-05-01 14:01:24 - Assemble contigs from SdBG for k = 29
+2026-05-01 14:01:24 - Local assembly for k = 29
+2026-05-01 14:01:24 - Extract iterative edges from k = 29 to 39 
+2026-05-01 14:01:24 - Build graph for k = 39 
+2026-05-01 14:01:25 - Assemble contigs from SdBG for k = 39
+2026-05-01 14:01:25 - Local assembly for k = 39
+2026-05-01 14:01:25 - Extract iterative edges from k = 39 to 59 
+2026-05-01 14:01:25 - Build graph for k = 59 
+2026-05-01 14:01:25 - Assemble contigs from SdBG for k = 59
+2026-05-01 14:01:25 - Local assembly for k = 59
+2026-05-01 14:01:25 - Extract iterative edges from k = 59 to 79 
+2026-05-01 14:01:25 - Merging to output final contigs 
+2026-05-01 14:01:25 - 6 contigs, total 20114 bp, min 201 bp, max 18945 bp, avg 3352 bp, N50 18945 bp
+2026-05-01 14:01:25 - ALL DONE. Time elapsed: 1.473936 seconds 
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t1_1.fq -2 sim_t1_2.fq -o t1_out
+megahit: Output directory /Users/ben.kuehl/Downloads/ben/t1_out already exists, please change the parameter -o to another value to avoid overwriting.
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t2_1.fq -2 sim_t2_2.fq -o t2_out
+2026-05-01 14:02:18 - MEGAHIT v1.2.9
+2026-05-01 14:02:18 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:02:18 - Convert reads to binary library
+2026-05-01 14:02:18 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t2_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t2_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:02:18 - b'INFO  utils/utils.h                 :  152 - Real: 0.0041\tuser: 0.0033\tsys: 0.0014\tmaxrss: 3391488'
+2026-05-01 14:02:18 - k-max reset to: 141 
+2026-05-01 14:02:18 - Start assembly. Number of CPU threads 8 
+2026-05-01 14:02:18 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:02:18 - Memory used: 7730941132
+2026-05-01 14:02:18 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:02:18 - Build graph for k = 21 
+2026-05-01 14:02:18 - Assemble contigs from SdBG for k = 21
+2026-05-01 14:02:18 - Error occurs, please refer to /Users/ben.kuehl/Downloads/ben/t2_out/log for detail
+2026-05-01 14:02:18 - Command: /Users/ben.kuehl/miniconda3/bin/megahit_core_popcnt assemble -s /Users/ben.kuehl/Downloads/ben/t2_out/tmp/k21/21 -o /Users/ben.kuehl/Downloads/ben/t2_out/intermediate_contigs/k21 -t 8 --min_standalone 300 --prune_level 2 --merge_len 20 --merge_similar 0.95 --cleaning_rounds 5 --disconnect_ratio 0.1 --low_local_ratio 0.2 --cleaning_rounds 5 --min_depth 2 --bubble_level 2 --max_tip_len -1 --careful_bubble; Exit code -11
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t3_1.fq -2 sim_t3_2.fq -o t3_out
+2026-05-01 14:02:36 - MEGAHIT v1.2.9
+2026-05-01 14:02:36 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:02:36 - Convert reads to binary library
+2026-05-01 14:02:36 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t3_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t3_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:02:36 - b'INFO  utils/utils.h                 :  152 - Real: 0.0041\tuser: 0.0032\tsys: 0.0014\tmaxrss: 3489792'
+2026-05-01 14:02:36 - k-max reset to: 141 
+2026-05-01 14:02:36 - Start assembly. Number of CPU threads 8 
+2026-05-01 14:02:36 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:02:36 - Memory used: 7730941132
+2026-05-01 14:02:36 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:02:37 - Error occurs, please refer to /Users/ben.kuehl/Downloads/ben/t3_out/log for detail
+2026-05-01 14:02:37 - Command: /Users/ben.kuehl/miniconda3/bin/megahit_core_popcnt count -k 21 -m 2 --host_mem 7730941132 --mem_flag 1 --output_prefix /Users/ben.kuehl/Downloads/ben/t3_out/tmp/k21/21 --num_cpu_threads 8 --read_lib_file /Users/ben.kuehl/Downloads/ben/t3_out/tmp/reads.lib; Exit code -11
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t4_1.fq -2 sim_t4_2.fq -o t4_out
+2026-05-01 14:02:51 - MEGAHIT v1.2.9
+2026-05-01 14:02:51 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:02:51 - Convert reads to binary library
+2026-05-01 14:02:51 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t4_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t4_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:02:51 - b'INFO  utils/utils.h                 :  152 - Real: 0.0042\tuser: 0.0033\tsys: 0.0014\tmaxrss: 3440640'
+2026-05-01 14:02:51 - k-max reset to: 141 
+2026-05-01 14:02:51 - Start assembly. Number of CPU threads 8 
+2026-05-01 14:02:51 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:02:51 - Memory used: 7730941132
+2026-05-01 14:02:51 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:02:51 - Error occurs, please refer to /Users/ben.kuehl/Downloads/ben/t4_out/log for detail
+2026-05-01 14:02:51 - Command: /Users/ben.kuehl/miniconda3/bin/megahit_core_popcnt count -k 21 -m 2 --host_mem 7730941132 --mem_flag 1 --output_prefix /Users/ben.kuehl/Downloads/ben/t4_out/tmp/k21/21 --num_cpu_threads 8 --read_lib_file /Users/ben.kuehl/Downloads/ben/t4_out/tmp/reads.lib; Exit code -11
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t5_1.fq -2 sim_t5_2.fq -o t5_out
+2026-05-01 14:03:05 - MEGAHIT v1.2.9
+2026-05-01 14:03:05 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:03:05 - Convert reads to binary library
+2026-05-01 14:03:05 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t5_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t5_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:03:05 - b'INFO  utils/utils.h                 :  152 - Real: 0.0043\tuser: 0.0032\tsys: 0.0013\tmaxrss: 3391488'
+2026-05-01 14:03:05 - k-max reset to: 141 
+2026-05-01 14:03:05 - Start assembly. Number of CPU threads 8 
+2026-05-01 14:03:05 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:03:05 - Memory used: 7730941132
+2026-05-01 14:03:05 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:03:05 - Error occurs, please refer to /Users/ben.kuehl/Downloads/ben/t5_out/log for detail
+2026-05-01 14:03:05 - Command: /Users/ben.kuehl/miniconda3/bin/megahit_core_popcnt count -k 21 -m 2 --host_mem 7730941132 --mem_flag 1 --output_prefix /Users/ben.kuehl/Downloads/ben/t5_out/tmp/k21/21 --num_cpu_threads 8 --read_lib_file /Users/ben.kuehl/Downloads/ben/t5_out/tmp/reads.lib; Exit code -11
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t6_1.fq -2 sim_t6_2.fq -o t6_out
+2026-05-01 14:03:22 - MEGAHIT v1.2.9
+2026-05-01 14:03:22 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:03:22 - Convert reads to binary library
+2026-05-01 14:03:22 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t6_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t6_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:03:22 - b'INFO  utils/utils.h                 :  152 - Real: 0.0042\tuser: 0.0033\tsys: 0.0013\tmaxrss: 3391488'
+2026-05-01 14:03:22 - k-max reset to: 141 
+2026-05-01 14:03:22 - Start assembly. Number of CPU threads 8 
+2026-05-01 14:03:22 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:03:22 - Memory used: 7730941132
+2026-05-01 14:03:22 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:03:22 - Error occurs, please refer to /Users/ben.kuehl/Downloads/ben/t6_out/log for detail
+2026-05-01 14:03:22 - Command: /Users/ben.kuehl/miniconda3/bin/megahit_core_popcnt count -k 21 -m 2 --host_mem 7730941132 --mem_flag 1 --output_prefix /Users/ben.kuehl/Downloads/ben/t6_out/tmp/k21/21 --num_cpu_threads 8 --read_lib_file /Users/ben.kuehl/Downloads/ben/t6_out/tmp/reads.lib; Exit code -11
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % rm -r t1_out                                   
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % rm -r t2_out
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % rm -r t3_out
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % rm -r t4_out
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % rm -r t5_out
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % rm -r t6_out
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t6_1.fq -2 sim_t6_2.fq -o t6_out --num-cpu-threads 1
+2026-05-01 14:18:20 - MEGAHIT v1.2.9
+2026-05-01 14:18:20 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:18:20 - Convert reads to binary library
+2026-05-01 14:18:20 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t6_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t6_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:18:20 - b'INFO  utils/utils.h                 :  152 - Real: 0.0049\tuser: 0.0029\tsys: 0.0015\tmaxrss: 3506176'
+2026-05-01 14:18:20 - k-max reset to: 141 
+2026-05-01 14:18:20 - Start assembly. Number of CPU threads 1 
+2026-05-01 14:18:20 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:18:20 - Memory used: 7730941132
+2026-05-01 14:18:20 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:18:20 - Build graph for k = 21 
+2026-05-01 14:18:21 - Assemble contigs from SdBG for k = 21
+2026-05-01 14:18:21 - Local assembly for k = 21
+2026-05-01 14:18:21 - Extract iterative edges from k = 21 to 29 
+2026-05-01 14:18:21 - Build graph for k = 29 
+2026-05-01 14:18:21 - Assemble contigs from SdBG for k = 29
+2026-05-01 14:18:21 - Local assembly for k = 29
+2026-05-01 14:18:21 - Extract iterative edges from k = 29 to 39 
+2026-05-01 14:18:21 - Build graph for k = 39 
+2026-05-01 14:18:21 - Assemble contigs from SdBG for k = 39
+2026-05-01 14:18:21 - Local assembly for k = 39
+2026-05-01 14:18:21 - Extract iterative edges from k = 39 to 59 
+2026-05-01 14:18:21 - Build graph for k = 59 
+2026-05-01 14:18:21 - Assemble contigs from SdBG for k = 59
+2026-05-01 14:18:21 - Local assembly for k = 59
+2026-05-01 14:18:21 - Extract iterative edges from k = 59 to 79 
+2026-05-01 14:18:21 - Merging to output final contigs 
+2026-05-01 14:18:21 - 2 contigs, total 19093 bp, min 200 bp, max 18893 bp, avg 9546 bp, N50 18893 bp
+2026-05-01 14:18:21 - ALL DONE. Time elapsed: 1.161320 seconds 
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t5_1.fq -2 sim_t5_2.fq -o t5_out --num-cpu-threads 1
+2026-05-01 14:18:32 - MEGAHIT v1.2.9
+2026-05-01 14:18:32 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:18:32 - Convert reads to binary library
+2026-05-01 14:18:32 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t5_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t5_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:18:32 - b'INFO  utils/utils.h                 :  152 - Real: 0.0062\tuser: 0.0032\tsys: 0.0014\tmaxrss: 3424256'
+2026-05-01 14:18:32 - k-max reset to: 141 
+2026-05-01 14:18:32 - Start assembly. Number of CPU threads 1 
+2026-05-01 14:18:32 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:18:32 - Memory used: 7730941132
+2026-05-01 14:18:32 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:18:32 - Build graph for k = 21 
+2026-05-01 14:18:33 - Assemble contigs from SdBG for k = 21
+2026-05-01 14:18:33 - Local assembly for k = 21
+2026-05-01 14:18:33 - Extract iterative edges from k = 21 to 29 
+2026-05-01 14:18:33 - Build graph for k = 29 
+2026-05-01 14:18:33 - Assemble contigs from SdBG for k = 29
+2026-05-01 14:18:33 - Local assembly for k = 29
+2026-05-01 14:18:33 - Extract iterative edges from k = 29 to 39 
+2026-05-01 14:18:33 - Build graph for k = 39 
+2026-05-01 14:18:33 - Assemble contigs from SdBG for k = 39
+2026-05-01 14:18:34 - Local assembly for k = 39
+2026-05-01 14:18:34 - Extract iterative edges from k = 39 to 59 
+2026-05-01 14:18:34 - Merging to output final contigs 
+2026-05-01 14:18:34 - 3 contigs, total 19355 bp, min 201 bp, max 18940 bp, avg 6451 bp, N50 18940 bp
+2026-05-01 14:18:34 - ALL DONE. Time elapsed: 1.168484 seconds 
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t4_1.fq -2 sim_t4_2.fq -o t4_out           
+2026-05-01 14:19:47 - MEGAHIT v1.2.9
+2026-05-01 14:19:47 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:19:47 - Convert reads to binary library
+2026-05-01 14:19:47 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t4_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t4_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:19:47 - b'INFO  utils/utils.h                 :  152 - Real: 0.0041\tuser: 0.0031\tsys: 0.0013\tmaxrss: 3440640'
+2026-05-01 14:19:47 - k-max reset to: 141 
+2026-05-01 14:19:47 - Start assembly. Number of CPU threads 8 
+2026-05-01 14:19:47 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:19:47 - Memory used: 7730941132
+2026-05-01 14:19:47 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:19:47 - Error occurs, please refer to /Users/ben.kuehl/Downloads/ben/t4_out/log for detail
+2026-05-01 14:19:47 - Command: /Users/ben.kuehl/miniconda3/bin/megahit_core_popcnt count -k 21 -m 2 --host_mem 7730941132 --mem_flag 1 --output_prefix /Users/ben.kuehl/Downloads/ben/t4_out/tmp/k21/21 --num_cpu_threads 8 --read_lib_file /Users/ben.kuehl/Downloads/ben/t4_out/tmp/reads.lib; Exit code -11
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t3_1.fq -2 sim_t3_2.fq -o t3_out
+2026-05-01 14:20:01 - MEGAHIT v1.2.9
+2026-05-01 14:20:01 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:20:01 - Convert reads to binary library
+2026-05-01 14:20:01 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t3_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t3_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:20:01 - b'INFO  utils/utils.h                 :  152 - Real: 0.0043\tuser: 0.0033\tsys: 0.0014\tmaxrss: 3440640'
+2026-05-01 14:20:01 - k-max reset to: 141 
+2026-05-01 14:20:01 - Start assembly. Number of CPU threads 8 
+2026-05-01 14:20:01 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:20:01 - Memory used: 7730941132
+2026-05-01 14:20:01 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:20:01 - Error occurs, please refer to /Users/ben.kuehl/Downloads/ben/t3_out/log for detail
+2026-05-01 14:20:01 - Command: /Users/ben.kuehl/miniconda3/bin/megahit_core_popcnt count -k 21 -m 2 --host_mem 7730941132 --mem_flag 1 --output_prefix /Users/ben.kuehl/Downloads/ben/t3_out/tmp/k21/21 --num_cpu_threads 8 --read_lib_file /Users/ben.kuehl/Downloads/ben/t3_out/tmp/reads.lib; Exit code -11
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t2_1.fq -2 sim_t2_2.fq -o t2_out
+2026-05-01 14:20:14 - MEGAHIT v1.2.9
+2026-05-01 14:20:14 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:20:14 - Convert reads to binary library
+2026-05-01 14:20:14 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t2_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t2_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:20:14 - b'INFO  utils/utils.h                 :  152 - Real: 0.0050\tuser: 0.0032\tsys: 0.0014\tmaxrss: 3473408'
+2026-05-01 14:20:14 - k-max reset to: 141 
+2026-05-01 14:20:14 - Start assembly. Number of CPU threads 8 
+2026-05-01 14:20:14 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:20:14 - Memory used: 7730941132
+2026-05-01 14:20:14 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:20:14 - Error occurs, please refer to /Users/ben.kuehl/Downloads/ben/t2_out/log for detail
+2026-05-01 14:20:14 - Command: /Users/ben.kuehl/miniconda3/bin/megahit_core_popcnt count -k 21 -m 2 --host_mem 7730941132 --mem_flag 1 --output_prefix /Users/ben.kuehl/Downloads/ben/t2_out/tmp/k21/21 --num_cpu_threads 8 --read_lib_file /Users/ben.kuehl/Downloads/ben/t2_out/tmp/reads.lib; Exit code -11
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t1_1.fq -2 sim_t1_2.fq -o t1_out
+2026-05-01 14:20:18 - MEGAHIT v1.2.9
+2026-05-01 14:20:18 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:20:18 - Convert reads to binary library
+2026-05-01 14:20:18 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t1_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t1_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:20:18 - b'INFO  utils/utils.h                 :  152 - Real: 0.0046\tuser: 0.0032\tsys: 0.0014\tmaxrss: 3391488'
+2026-05-01 14:20:18 - k-max reset to: 141 
+2026-05-01 14:20:18 - Start assembly. Number of CPU threads 8 
+2026-05-01 14:20:18 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:20:18 - Memory used: 7730941132
+2026-05-01 14:20:18 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:20:18 - Error occurs, please refer to /Users/ben.kuehl/Downloads/ben/t1_out/log for detail
+2026-05-01 14:20:18 - Command: /Users/ben.kuehl/miniconda3/bin/megahit_core_popcnt count -k 21 -m 2 --host_mem 7730941132 --mem_flag 1 --output_prefix /Users/ben.kuehl/Downloads/ben/t1_out/tmp/k21/21 --num_cpu_threads 8 --read_lib_file /Users/ben.kuehl/Downloads/ben/t1_out/tmp/reads.lib; Exit code -11
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % ls -l
+total 14304
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t1_1.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t1_2.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t2_1.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t2_2.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t3_1.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t3_2.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t4_1.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t4_2.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t5_1.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t5_2.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t6_1.fq
+-rw-rw-r--@ 1 ben.kuehl  staff  609918 Apr 24 15:42 sim_t6_2.fq
+drwxr-xr-x  7 ben.kuehl  staff     224 May  1 14:20 t1_out
+drwxr-xr-x  7 ben.kuehl  staff     224 May  1 14:20 t2_out
+drwxr-xr-x  7 ben.kuehl  staff     224 May  1 14:20 t3_out
+drwxr-xr-x  7 ben.kuehl  staff     224 May  1 14:19 t4_out
+drwxr-xr-x  8 ben.kuehl  staff     256 May  1 14:18 t5_out
+drwxr-xr-x  8 ben.kuehl  staff     256 May  1 14:18 t6_out
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % cd t6_out 
+(base) ben.kuehl@Bens-MacBook-Pro-2 t6_out % ls -l
+total 184
+-rw-r--r--   1 ben.kuehl  staff    150 May  1 14:18 checkpoints.txt
+-rw-r--r--   1 ben.kuehl  staff      0 May  1 14:18 done
+-rw-r--r--   1 ben.kuehl  staff  19168 May  1 14:18 final.contigs.fa
+drwxr-xr-x  42 ben.kuehl  staff   1344 May  1 14:18 intermediate_contigs
+-rw-r--r--   1 ben.kuehl  staff  65105 May  1 14:18 log
+-rw-r--r--   1 ben.kuehl  staff    899 May  1 14:18 options.json
+(base) ben.kuehl@Bens-MacBook-Pro-2 t6_out % cd .
+(base) ben.kuehl@Bens-MacBook-Pro-2 t6_out % cd ..
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % cd t1_out 
+(base) ben.kuehl@Bens-MacBook-Pro-2 t1_out % ls -l
+total 24
+-rw-r--r--  1 ben.kuehl  staff    14 May  1 14:20 checkpoints.txt
+drwxr-xr-x  2 ben.kuehl  staff    64 May  1 14:20 intermediate_contigs
+-rw-r--r--  1 ben.kuehl  staff  3264 May  1 14:20 log
+-rw-r--r--  1 ben.kuehl  staff   899 May  1 14:20 options.json
+drwxr-xr-x  6 ben.kuehl  staff   192 May  1 14:20 tmp
+(base) ben.kuehl@Bens-MacBook-Pro-2 t1_out % rm -r t1
+rm: t1: No such file or directory
+(base) ben.kuehl@Bens-MacBook-Pro-2 t1_out % cd .    
+(base) ben.kuehl@Bens-MacBook-Pro-2 t1_out % cd ..
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % rm -r t1_out 
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t1_1.fq -2 sim_t1_2.fq -o t1_out --num-cpu-threads 1
+2026-05-01 14:32:59 - MEGAHIT v1.2.9
+2026-05-01 14:32:59 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:32:59 - Convert reads to binary library
+2026-05-01 14:32:59 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t1_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t1_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:32:59 - b'INFO  utils/utils.h                 :  152 - Real: 0.0049\tuser: 0.0029\tsys: 0.0015\tmaxrss: 3457024'
+2026-05-01 14:32:59 - k-max reset to: 141 
+2026-05-01 14:32:59 - Start assembly. Number of CPU threads 1 
+2026-05-01 14:32:59 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:32:59 - Memory used: 7730941132
+2026-05-01 14:32:59 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:32:59 - Build graph for k = 21 
+2026-05-01 14:32:59 - Assemble contigs from SdBG for k = 21
+2026-05-01 14:33:00 - Local assembly for k = 21
+2026-05-01 14:33:00 - Extract iterative edges from k = 21 to 29 
+2026-05-01 14:33:00 - Build graph for k = 29 
+2026-05-01 14:33:00 - Assemble contigs from SdBG for k = 29
+2026-05-01 14:33:00 - Local assembly for k = 29
+2026-05-01 14:33:00 - Extract iterative edges from k = 29 to 39 
+2026-05-01 14:33:00 - Build graph for k = 39 
+2026-05-01 14:33:00 - Assemble contigs from SdBG for k = 39
+2026-05-01 14:33:00 - Local assembly for k = 39
+2026-05-01 14:33:01 - Extract iterative edges from k = 39 to 59 
+2026-05-01 14:33:01 - Build graph for k = 59 
+2026-05-01 14:33:01 - Assemble contigs from SdBG for k = 59
+2026-05-01 14:33:01 - Local assembly for k = 59
+2026-05-01 14:33:01 - Extract iterative edges from k = 59 to 79 
+2026-05-01 14:33:01 - Merging to output final contigs 
+2026-05-01 14:33:01 - 6 contigs, total 20114 bp, min 201 bp, max 18945 bp, avg 3352 bp, N50 18945 bp
+2026-05-01 14:33:01 - ALL DONE. Time elapsed: 1.446177 seconds 
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % rm -r t2_out 
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % rm -r t3_out 
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % rm -r t4_out 
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % rm -r t5_out 
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t2_1.fq -2 sim_t2_2.fq -o t2_out --num-cpu-threads 1
+2026-05-01 14:34:33 - MEGAHIT v1.2.9
+2026-05-01 14:34:33 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:34:33 - Convert reads to binary library
+2026-05-01 14:34:33 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t2_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t2_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:34:33 - b'INFO  utils/utils.h                 :  152 - Real: 0.0043\tuser: 0.0033\tsys: 0.0014\tmaxrss: 3391488'
+2026-05-01 14:34:33 - k-max reset to: 141 
+2026-05-01 14:34:33 - Start assembly. Number of CPU threads 1 
+2026-05-01 14:34:33 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:34:33 - Memory used: 7730941132
+2026-05-01 14:34:33 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:34:33 - Build graph for k = 21 
+2026-05-01 14:34:33 - Assemble contigs from SdBG for k = 21
+2026-05-01 14:34:33 - Local assembly for k = 21
+2026-05-01 14:34:34 - Extract iterative edges from k = 21 to 29 
+2026-05-01 14:34:34 - Build graph for k = 29 
+2026-05-01 14:34:34 - Assemble contigs from SdBG for k = 29
+2026-05-01 14:34:34 - Local assembly for k = 29
+2026-05-01 14:34:34 - Extract iterative edges from k = 29 to 39 
+2026-05-01 14:34:34 - Build graph for k = 39 
+2026-05-01 14:34:34 - Assemble contigs from SdBG for k = 39
+2026-05-01 14:34:34 - Local assembly for k = 39
+2026-05-01 14:34:34 - Extract iterative edges from k = 39 to 59 
+2026-05-01 14:34:34 - Build graph for k = 59 
+2026-05-01 14:34:34 - Assemble contigs from SdBG for k = 59
+2026-05-01 14:34:34 - Local assembly for k = 59
+2026-05-01 14:34:34 - Extract iterative edges from k = 59 to 79 
+2026-05-01 14:34:34 - Merging to output final contigs 
+2026-05-01 14:34:34 - 1 contigs, total 18868 bp, min 18868 bp, max 18868 bp, avg 18868 bp, N50 18868 bp
+2026-05-01 14:34:34 - ALL DONE. Time elapsed: 1.150169 seconds 
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t3_1.fq -2 sim_t3_2.fq -o t3_out --num-cpu-threads 1
+2026-05-01 14:35:11 - MEGAHIT v1.2.9
+2026-05-01 14:35:11 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:35:11 - Convert reads to binary library
+2026-05-01 14:35:11 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t3_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t3_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:35:11 - b'INFO  utils/utils.h                 :  152 - Real: 0.0041\tuser: 0.0031\tsys: 0.0014\tmaxrss: 3391488'
+2026-05-01 14:35:11 - k-max reset to: 141 
+2026-05-01 14:35:11 - Start assembly. Number of CPU threads 1 
+2026-05-01 14:35:11 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:35:11 - Memory used: 7730941132
+2026-05-01 14:35:11 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:35:11 - Build graph for k = 21 
+2026-05-01 14:35:11 - Assemble contigs from SdBG for k = 21
+2026-05-01 14:35:11 - Local assembly for k = 21
+2026-05-01 14:35:12 - Extract iterative edges from k = 21 to 29 
+2026-05-01 14:35:12 - Build graph for k = 29 
+2026-05-01 14:35:12 - Assemble contigs from SdBG for k = 29
+2026-05-01 14:35:12 - Local assembly for k = 29
+2026-05-01 14:35:12 - Extract iterative edges from k = 29 to 39 
+2026-05-01 14:35:12 - Build graph for k = 39 
+2026-05-01 14:35:12 - Assemble contigs from SdBG for k = 39
+2026-05-01 14:35:12 - Local assembly for k = 39
+2026-05-01 14:35:12 - Extract iterative edges from k = 39 to 59 
+2026-05-01 14:35:12 - Build graph for k = 59 
+2026-05-01 14:35:12 - Assemble contigs from SdBG for k = 59
+2026-05-01 14:35:13 - Local assembly for k = 59
+2026-05-01 14:35:13 - Extract iterative edges from k = 59 to 79 
+2026-05-01 14:35:13 - Merging to output final contigs 
+2026-05-01 14:35:13 - 1 contigs, total 18915 bp, min 18915 bp, max 18915 bp, avg 18915 bp, N50 18915 bp
+2026-05-01 14:35:13 - ALL DONE. Time elapsed: 1.459841 seconds 
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t4_1.fq -2 sim_t4_2.fq -o t4_out --num-cpu-threads 1
+2026-05-01 14:35:44 - MEGAHIT v1.2.9
+2026-05-01 14:35:44 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:35:44 - Convert reads to binary library
+2026-05-01 14:35:44 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t4_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t4_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:35:44 - b'INFO  utils/utils.h                 :  152 - Real: 0.0044\tuser: 0.0033\tsys: 0.0014\tmaxrss: 3440640'
+2026-05-01 14:35:44 - k-max reset to: 141 
+2026-05-01 14:35:44 - Start assembly. Number of CPU threads 1 
+2026-05-01 14:35:44 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:35:44 - Memory used: 7730941132
+2026-05-01 14:35:44 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:35:44 - Build graph for k = 21 
+2026-05-01 14:35:45 - Assemble contigs from SdBG for k = 21
+2026-05-01 14:35:45 - Local assembly for k = 21
+2026-05-01 14:35:45 - Extract iterative edges from k = 21 to 29 
+2026-05-01 14:35:45 - Build graph for k = 29 
+2026-05-01 14:35:45 - Assemble contigs from SdBG for k = 29
+2026-05-01 14:35:45 - Local assembly for k = 29
+2026-05-01 14:35:45 - Extract iterative edges from k = 29 to 39 
+2026-05-01 14:35:45 - Build graph for k = 39 
+2026-05-01 14:35:45 - Assemble contigs from SdBG for k = 39
+2026-05-01 14:35:45 - Local assembly for k = 39
+2026-05-01 14:35:46 - Extract iterative edges from k = 39 to 59 
+2026-05-01 14:35:46 - Build graph for k = 59 
+2026-05-01 14:35:46 - Assemble contigs from SdBG for k = 59
+2026-05-01 14:35:46 - Local assembly for k = 59
+2026-05-01 14:35:46 - Extract iterative edges from k = 59 to 79 
+2026-05-01 14:35:46 - Build graph for k = 79 
+2026-05-01 14:35:46 - Assemble contigs from SdBG for k = 79
+2026-05-01 14:35:46 - Local assembly for k = 79
+2026-05-01 14:35:46 - Extract iterative edges from k = 79 to 99 
+2026-05-01 14:35:46 - Build graph for k = 99 
+2026-05-01 14:35:46 - Assemble contigs from SdBG for k = 99
+2026-05-01 14:35:46 - Local assembly for k = 99
+2026-05-01 14:35:46 - Extract iterative edges from k = 99 to 119 
+2026-05-01 14:35:46 - Build graph for k = 119 
+2026-05-01 14:35:46 - Assemble contigs from SdBG for k = 119
+2026-05-01 14:35:46 - Local assembly for k = 119
+2026-05-01 14:35:46 - Extract iterative edges from k = 119 to 141 
+2026-05-01 14:35:46 - Merging to output final contigs 
+2026-05-01 14:35:46 - 3 contigs, total 19528 bp, min 301 bp, max 18919 bp, avg 6509 bp, N50 18919 bp
+2026-05-01 14:35:46 - ALL DONE. Time elapsed: 1.851484 seconds 
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t5_1.fq -2 sim_t5_2.fq -o t5_out --num-cpu-threads 1
+2026-05-01 14:36:03 - MEGAHIT v1.2.9
+2026-05-01 14:36:03 - Using megahit_core without POPCNT and BMI2 support, because the features not detected by CPUID 
+2026-05-01 14:36:03 - Convert reads to binary library
+2026-05-01 14:36:03 - b'INFO  sequence/io/sequence_lib.cpp  :   77 - Lib 0 (/Users/ben.kuehl/Downloads/ben/sim_t5_1.fq,/Users/ben.kuehl/Downloads/ben/sim_t5_2.fq): pe, 3780 reads, 150 max length'
+2026-05-01 14:36:03 - b'INFO  utils/utils.h                 :  152 - Real: 0.0044\tuser: 0.0033\tsys: 0.0014\tmaxrss: 3440640'
+2026-05-01 14:36:03 - k-max reset to: 141 
+2026-05-01 14:36:03 - Start assembly. Number of CPU threads 1 
+2026-05-01 14:36:03 - k list: 21,29,39,59,79,99,119,141 
+2026-05-01 14:36:03 - Memory used: 7730941132
+2026-05-01 14:36:03 - Extract solid (k+1)-mers for k = 21 
+2026-05-01 14:36:04 - Build graph for k = 21 
+2026-05-01 14:36:04 - Assemble contigs from SdBG for k = 21
+2026-05-01 14:36:04 - Local assembly for k = 21
+2026-05-01 14:36:04 - Extract iterative edges from k = 21 to 29 
+2026-05-01 14:36:04 - Build graph for k = 29 
+2026-05-01 14:36:04 - Assemble contigs from SdBG for k = 29
+2026-05-01 14:36:04 - Local assembly for k = 29
+2026-05-01 14:36:04 - Extract iterative edges from k = 29 to 39 
+2026-05-01 14:36:05 - Build graph for k = 39 
+2026-05-01 14:36:05 - Assemble contigs from SdBG for k = 39
+2026-05-01 14:36:05 - Local assembly for k = 39
+2026-05-01 14:36:05 - Extract iterative edges from k = 39 to 59 
+2026-05-01 14:36:05 - Merging to output final contigs 
+2026-05-01 14:36:05 - 3 contigs, total 19355 bp, min 201 bp, max 18940 bp, avg 6451 bp, N50 18940 bp
+2026-05-01 14:36:05 - ALL DONE. Time elapsed: 1.155798 seconds 
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % megahit -1 sim_t6_1.fq -2 sim_t6_2.fq -o t6_out --num-cpu-threads 1
+megahit: Output directory /Users/ben.kuehl/Downloads/ben/t6_out already exists, please change the parameter -o to another value to avoid overwriting.
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % 
+  [Restored May 4, 2026 at 1:01:38 PM]
+Last login: Mon May  4 13:01:36 on console
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % 
+  [Restored May 4, 2026 at 2:06:01 PM]
+Last login: Mon May  4 14:05:59 on console
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % 
+  [Restored May 8, 2026 at 12:23:11 PM]
+Last login: Fri May  8 12:23:09 on console
+(base) ben.kuehl@Bens-MacBook-Pro-2 ben % 
+  [Restored May 13, 2026 at 1:18:58 PM]
+Last login: Wed May 13 13:18:55 on console
+(base) ben.kuehl@Bens-MacBook-Pro-3 ben % /Users/ben.kuehl/Downloads 
