@@ -1,36 +1,36 @@
-#
+# Install packages 
 BiocManager::install("Biostrings")
 BiocManager::install("DECIPHER")
 
-
+# Load required libraries
 library(Biostrings)
 library(DECIPHER)
 
-
+# Read each sample in megahit assembly
 allcontigs <- c()
 for(i in 1:6){
 contigs <- readDNAStringSet(paste0('~/Downloads/ben/t', i, '_out/final.contigs.fa'))
 allcontigs <- c(allcontigs, contigs)
 }
 
-
+# Flatten the list 
 allcontigs <- do.call(c, allcontigs)
 
-
+# Align the fragments in the genome larger than 5kbp
 toalign <
 - allcontigs[which(nchar(allcontigs) > 5000)]
 names(toalign) <-1:length(toalign)
 
-
+# View the alignment 
 BrowseSeqs(alignment, htmlFile = 'final_project.html')
 
-
+# Ensure the correct package is installed
 > packageVersion("DECIPHER")
 
-
+#
 > ls("package:DECIPHER", pattern = "Tree")
 
-
+# Plot phylogenetic tree
 > tree <- Treeline(alignment, method = "ML", showPlot = TRUE)
 
 
